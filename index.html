@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Classmates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .students {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .student {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 180px;
+        }
+        .student img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Classmates</h1>
+
+    <!-- Search Box -->
+    <input type="text" id="searchBox" onkeyup="searchFunction()" placeholder="Search by name...">
+
+    <div class="container">
+        <div class="students">
+            <div class="student">
+                <img src="IMG_4207.jpeg" alt="Rui Ma">
+                <p>Rui Ma</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4212.jpeg" alt="Xinyu Ma">
+                <p>Xinyu Ma</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4209.jpeg" alt="Yu Ma">
+                <p>Yu Ma</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4213.jpeg" alt="Haonan Yang">
+                <p>Haonan Yang</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4208.jpeg" alt="Jiachen Huang">
+                <p>Jiachen Huang</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4211.jpeg" alt="Madaree">
+                <p>Madaree</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4210.jpeg" alt="Iklass">
+                <p>Iklass</p>
+            </div>
+            <div class="student">
+                <img src="IMG_4206.jpeg" alt="Chonlasit">
+                <p>Chonlasit</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table of Classmates -->
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Hobby</th>
+        </tr>
+        <tr>
+            <td>Rui Ma</td>
+            <td>21</td>
+            <td>Computer Science</td>
+            <td>Reading</td>
+        </tr>
+        <tr>
+            <td>Xinyu Ma</td>
+            <td>20</td>
+            <td>Computer Science</td>
+            <td>Music</td>
+        </tr>
+        <tr>
+            <td>Yu Ma</td>
+            <td>22</td>
+            <td>Computer Science</td>
+            <td>Soccer</td>
+        </tr>
+        <tr>
+            <td>Haonan Yang</td>
+            <td>21</td>
+            <td>Computer Science</td>
+            <td>Movies</td>
+        </tr>
+        <tr>
+            <td>Jiachen Huang</td>
+            <td>23</td>
+            <td>Computer Science</td>
+            <td>Traveling</td>
+        </tr>
+        <tr>
+            <td>Madaree</td>
+            <td>24</td>
+            <td>Computer Science</td>
+            <td>Photography</td>
+        </tr>
+        <tr>
+            <td>Iklass</td>
+            <td>22</td>
+            <td>Computer Science</td>
+            <td>Writing</td>
+        </tr>
+        <tr>
+            <td>Chonlasit</td>
+            <td>25</td>
+            <td>Computer Science</td>
+            <td>Coding</td>
+        </tr>
+    </table>
+
+    <!-- Search Function -->
+    <script>
+        function searchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchBox");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("studentTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) { 
+                td = tr[i].getElementsByTagName("td")[0]; 
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
+        }
+    </script>
+
+</body>
+</html>
